@@ -20,16 +20,16 @@ const initialState =[
 
 const contactReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "ADD_CONTACT":
+        case "ADD_TODO":
         state = [...state, action.payload];
      return state;
-     case "UPDATE_CONTACT":
-         const updateState = state.map(contact=> contact.id === action.payload.id ? action.payload : contact);
+     case "UPDATE_TODO":
+         const updateState = state.map(todo=> todo.id === action.payload.id ? action.payload : todo);
          state = updateState;
          return state;
-    case "DELETE_CONTACT":
+    case "DELETE_TODO":
         const filterContact = state.filter(
-            (contact) => contact.id !== action.payload && contact
+            (todo) => todo.id !== action.payload && todo
         );
         state = filterContact;
         default:
