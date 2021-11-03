@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
+import TodoReducer from '../src/redux/reducers/TodoReducer';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+const store = createStore(TodoReducer, composeWithDevTools());
 
 ReactDOM.render(
-  <Provider>
+  <Provider store={store}>
     <Router>
     <App />
     </Router>
